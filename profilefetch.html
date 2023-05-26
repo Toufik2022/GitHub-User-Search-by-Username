@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Profile Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 8px;
+      background-image: url('https://imgtr.ee/images/2023/05/11/lZPBY.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+
+    .container {
+      padding: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      width: 20%;
+      max-width: 100px;
+    }
+
+ @media screen and (max-width: 768px) {
+      input[type="text"] {
+        width: 60%;
+      }
+
+      button {
+        width: 40%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <html>
+<head>
+  <style>
+    .black-background {
+      background-color: black;
+      color: white;
+      display: inline;
+      padding: 5px; /* Optional: Add padding to create space around the text */
+    }
+  </style>
+</head>
+<body>
+  <h1><span class="black-background">GITHUB PROFILE FINDER</span></h1>
+</body>
+</html>
+    <input type="text" id="username" placeholder="Enter a GitHub username">
+	</br>
+	</br>
+    <button onclick="fetchProfile()">Search</button>
+	</br>
+	</br>
+    <div id="profile"></div>
+  </div>
+  <script>
+    function fetchProfile() {
+      const username = document.getElementById('username').value;
+      const url = `https://api.github.com/users/${username}`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const profile = document.getElementById('profile');
+          profile.innerHTML = `
+            <img src="${data.avatar_url}" alt="${data.name}">
+            <h2>${data.name}</h2>
+            <p>${data.bio}</p>
+            <a href="${data.html_url}" target="_blank">View Profile</a>
+          `;
+        })
+        .catch(error => console.error(error));
+    }
+  </script>
+  </br>
+ <style>
+  .button {
+    display: block;
+    text-align: center;
+    color: #000000;
+    padding: 10px;
+  }
+  
+  .button strong {
+    font-weight: bold;
+  }
+</style>
+<a href="" class="button"><strong>Copyright Reserved Designed & Developed By Tofik Jahagiradar</strong></a>
+</body>
+</html>
